@@ -1,21 +1,28 @@
-import os
-from dotenv import load_dotenv
-import requests
+from discordmsg.calculations import Calculations  
+from discordmsg.operations import add, subtract, multiply, divide  
+from discordmsg.calculation import Calculation  
+from decimal import Decimal  
+from typing import Callable
 
-load_dotenv()
-discord_token = os.getenv("DISCORD_TOKEN")
+class Calculator:
+    @staticmethod
+    def _perform_operation(a: Decimal, b: Decimal, operation: Callable[[Decimal, Decimal], Decimal]) -> Decimal:
+        calculation = Calculation.create(a, b, operation)
+        Calculations.add_calculation(calculation)
+        return calculation.perform()
+    
+    @staticmethod
+    def add(a: Decimal, b: Decimal) -> Decimal:
+        return Calculator._perform_operation(a, b, add)
 
-if discord_token is None:
-    raise ValueError("Discord token not found in the .env file")
+    @staticmethod
+    def subtract(a: Decimal, b: Decimal) -> Decimal:
+        return Calculator._perform_operation(a, b, subtract)
 
-url = "https://discord.com/api/v9/channels/1201390755604877362/messages"
+    @staticmethod
+    def multiply(a: Decimal, b: Decimal) -> Decimal:
+        return Calculator._perform_operation(a, b, multiply)
 
-payload = {
-    "content" : "test"
-}
-
-headers = {
-    "Authorization" : discord_token
-}
-
-res = requests.post(url, payload, headers=headers)
+    @staticmethod
+    def divide(a: Decimal, b: Decimal) -> Decimal:
+        return Calculator._perform_operation(a, b, divide)

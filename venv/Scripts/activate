@@ -38,7 +38,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="C:\Users\arqam\IS 421-Python directory\git_python_testing_setup_homework\venv"
+VIRTUAL_ENV="C:\Users\arqam\Calculator\Calculator\venv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
