@@ -1,8 +1,8 @@
 '''Testing Operations'''
 from decimal import Decimal
 import pytest
-from discordmsg.calculation import Calculation
-from discordmsg.operations import add, subtract, multiply, divide
+from calculator.calculation import Calculation
+from calculator.operations import add, subtract, multiply, divide
 
 
 def test_operation_add():

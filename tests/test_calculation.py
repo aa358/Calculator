@@ -2,8 +2,8 @@
 # pylint: disable=unnecessary-dunder-call, invalid-name
 from decimal import Decimal
 import pytest
-from discordmsg.calculation import Calculation
-from discordmsg.operations import add, subtract, multiply, divide
+from calculator.calculation import Calculation
+from calculator.operations import add, subtract, multiply, divide
 
 @pytest.mark.parametrize("a, b, operation, expected", [
     (Decimal('5'), Decimal('5'), add, Decimal('10')),

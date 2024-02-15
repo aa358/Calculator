@@ -1,5 +1,5 @@
 '''Calculator Test'''
-from discordmsg import Calculator
+from calculator import Calculator
 
 def test_addition():
     '''Test for addition '''    
